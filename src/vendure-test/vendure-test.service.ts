@@ -3,6 +3,8 @@ import { gql } from "@apollo/client";
 import redis from 'redis'
 import { createClient } from 'redis';
 import { ApolloClient, InMemoryCache,HttpLink } from "@apollo/client";
+import fetch from 'cross-fetch';
+
 @Injectable()
 export class VendureTestService {
 
