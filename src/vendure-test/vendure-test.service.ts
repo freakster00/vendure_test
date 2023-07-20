@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { gql } from "@apollo/client";
 import redis from 'redis'
 import { createClient } from 'redis';
-import { ApolloClient, InMemoryCache } from "@apollo/client";
+import { ApolloClient, InMemoryCache,HttpLink } from "@apollo/client";
 @Injectable()
 export class VendureTestService {
 
@@ -41,6 +41,7 @@ export class VendureTestService {
     async fetchDataFromStellate(){
         const client = new ApolloClient({
             uri: "https://rohantest.stellate.sh/",
+            link: new HttpLink({ uri: '/graphql', fetch }),
             cache: new InMemoryCache(),
         });
         const { data } = await client.query({
@@ -89,6 +90,7 @@ export class VendureTestService {
       else{
         const client = new ApolloClient({
           uri: "https://rohantest.stellate.sh",
+          link: new HttpLink({ uri: '/graphql', fetch }),
           cache: new InMemoryCache(),
       });
       const { data } = await client.query({

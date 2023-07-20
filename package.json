@@ -33,6 +33,7 @@
     "@nestjs/websockets": "^9.3.3",
     "apollo-boost": "^0.4.9",
     "apollo-server-express": "^3.11.1",
+    "cross-fetch": "^4.0.0",
     "graphql": "^16.6.0",
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.1",
