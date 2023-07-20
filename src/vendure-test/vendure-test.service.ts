@@ -9,7 +9,7 @@ export class VendureTestService {
     async fetchNormalData(){
         
         const client = new ApolloClient({
-            uri: "https://admin.menzz.co/shop-api",
+          link: new HttpLink({ uri: 'https://admin.menzz.co/shop-api', fetch }),
             cache: new InMemoryCache(),
         });
         const { data } = await client.query({
@@ -40,8 +40,7 @@ export class VendureTestService {
     }
     async fetchDataFromStellate(){
         const client = new ApolloClient({
-            uri: "https://rohantest.stellate.sh/",
-            link: new HttpLink({ uri: '/graphql', fetch }),
+            link: new HttpLink({ uri: 'https://admin.menzz.co/shop-api', fetch }),
             cache: new InMemoryCache(),
         });
         const { data } = await client.query({
@@ -89,8 +88,7 @@ export class VendureTestService {
       
       else{
         const client = new ApolloClient({
-          uri: "https://rohantest.stellate.sh",
-          link: new HttpLink({ uri: '/graphql', fetch }),
+          link: new HttpLink({ uri: 'https://admin.menzz.co/shop-api', fetch }),
           cache: new InMemoryCache(),
       });
       const { data } = await client.query({
